@@ -13,7 +13,7 @@ https://www.nuget.org/packages/SquirrelFramework
 
 2. Get the Nuget package by searcing the keyword "SquirrelFramework" or using the Project Manager:
 ```Shell
-Install-Package SquirrelFramework -Version 1.0.13
+    Install-Package SquirrelFramework -Version 1.0.13
 ```
 
 3. Create your Domain Model
@@ -30,24 +30,28 @@ Install-Package SquirrelFramework -Version 1.0.13
         public int Age { get; set; }
     }
 ```
-`The [Database] attribute is not necessary`, you can set the default MongoDB database name at /Config/mongodb.config
+`The [Database] attribute is not necessary`, you can set the default MongoDB database name at `/Config/mongodb.config`
 
 4. Create your Repository for MongoDB CRUD
-
 ```C#
     using SquirrelFramework.Repository;
 ```
 ```C#
-    public class UserDBRepo: RepositoryBase<User> {}
-```
-`or`
-```C#
-    public class UserDBRepo: CustomizedRepositoryBase<User> {}
+    public class UserRepository: RepositoryBase<User> {}
 ```
 
 5. Now you are free to perform various operations on MongoDB.
 
 * Add a new user record
+```C#
+            var userRepo = new UserRepository();
+            userRepo.Add(new User{
+                Name = "Hendry",
+                Gender = "Male",
+                Age = "18",
+                Geolocation = new Geolocation(121.551949, 38.890957) 
+            });
+```
 
 * Get all users who are older than 18 and are two kilometers away from me
 
@@ -55,10 +59,36 @@ Install-Package SquirrelFramework -Version 1.0.13
 
 * Get users by pager
 
+6. If your data collection is dynamic, for example your have multiple collection to store your order information:
+* Users201801
+* Users201802
+* Users201803
+* Users201804
+* Users201805
+* ...
 
-6. Create your Domain Service (This is not a necessary step)
+You can use the CustomizedRepositoryBase class as a base class
 
+```C#
+    public class UserRepository: CustomizedRepositoryBase<User> {}
+```
+Then you can provide the specific collection name for each the CRUD operation.
 
+* Add a new user record
+```C#
+            var userRepo = new UserRepository();
+            userRepo.Add("Users201805", new User{
+                Name = "Hendry",
+                Gender = "Male",
+                Age = "18",
+                Geolocation = new Geolocation(121.551949, 38.890957) 
+            });
+```
+
+7. Create your Domain Service (This is not a necessary step)
+```C#
+    public class UserService : ServiceBase<User, UserRepository> {}
+```
 
 Contributing
 ------------
