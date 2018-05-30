@@ -19,8 +19,7 @@ https://www.nuget.org/packages/SquirrelFramework
 3. Create your Domain Model
 ```C#
     using SquirrelFramework.Domain.Model;
-```
-```C#
+
     [Database("YourDatabaseName")]
     [Collection("UsersCollectionName")]
     public class User : DomainModel
@@ -35,8 +34,7 @@ https://www.nuget.org/packages/SquirrelFramework
 4. Create your Repository for MongoDB CRUD
 ```C#
     using SquirrelFramework.Repository;
-```
-```C#
+
     public class UserRepository: RepositoryBase<User> {}
 ```
 
@@ -72,20 +70,16 @@ https://www.nuget.org/packages/SquirrelFramework
             userRepo.GetAllByPageSortBy(2, 15, u=>u.Age, true);
 ```
 
-6. If your data collection is dynamic, for example your have multiple collection to store your order information:
+6. If your data collection is dynamic, for example you have multiple collections to store your order information:
 * Users201801
 * Users201802
 * Users201803
-* Users201804
-* Users201805
 * ...
-
 You can use the CustomizedRepositoryBase class as a base class
-
 ```C#
     public class UserRepository: CustomizedRepositoryBase<User> {}
 ```
-Then you can provide the specific collection name for each the CRUD operation.
+Then you can provide the specific collection name for each CRUD operation.
 
 * Add a new user record
 ```C#
