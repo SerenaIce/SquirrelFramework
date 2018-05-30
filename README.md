@@ -4,7 +4,7 @@ Squirrel Framework - A lightweight back-end framework and utilities kit based on
 
 Get package
 ------------
-You can get the latest stable release from the `[official Nuget.org feed](https://www.nuget.org/packages/SquirrelFramework)`
+You can get the latest stable release from the [official Nuget.org feed](https://www.nuget.org/packages/SquirrelFramework)
 
 https://www.nuget.org/packages/SquirrelFramework
 
@@ -12,8 +12,9 @@ https://www.nuget.org/packages/SquirrelFramework
 1. Create a .NET project, please ensure that the target framework `MUST be .NET Framework 4.6.2 or later`.
 
 2. Get the Nuget package by searcing the keyword "SquirrelFramework" or using the Project Manager:
-
+```Shell
 Install-Package SquirrelFramework -Version 1.0.13
+```
 
 3. Create your Domain Model
 ```C#
