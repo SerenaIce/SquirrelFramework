@@ -75,6 +75,7 @@ https://www.nuget.org/packages/SquirrelFramework
 * Users201802
 * Users201803
 * ...
+
 You can use the CustomizedRepositoryBase class as a base class
 ```C#
     public class UserRepository: CustomizedRepositoryBase<User> {}
@@ -101,3 +102,4 @@ Contributing
 ------------
 
 * Hendry Qi              me@nap7.com
+`If you have any questions, please feel free to contact me`
