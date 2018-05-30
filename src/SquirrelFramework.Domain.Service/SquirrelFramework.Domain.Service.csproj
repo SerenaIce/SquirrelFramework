@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Squirrel.Nap7.com.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SquirrelFramework.Repository\SquirrelFramework.Repository.csproj">
+      <EmbedInteropTypes></EmbedInteropTypes>
+    </ProjectReference>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>SquirrelFramework.Domain.Model</id>
+    <version>1.0.0</version>
+    <title>Squirrel Framework Basic Domain Model</title>
+    <description>Basic Domain Model for Squirrel Framework</description>
+    <authors>Hendry</authors>
+    <owners>Hendry</owners>
+    <releaseNotes>The initial version of Squirrel Framework Domain Model</releaseNotes>
+    <licenseUrl>https://github.com/imnista/SquirrelFramework/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/imnista/SquirrelFramework</projectUrl>
+    <repository type="git" url="https://github.com/imnista/SquirrelFramework" />
+    <iconUrl>http://s.nap7.com/nugetsquirrelframework.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <copyright>Copyright 2018 Hendry, nap7.com</copyright>
+    <tags>domain model squirrel framework common</tags>
+  </metadata>
+  <files>
+    <file src="bin\Release\netstandard2.0\SquirrelFramework.Domain.Model.dll" target="lib\netstandard2.0" />
+  </files>
+</package>

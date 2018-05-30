@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!-- .nuspec file reference https://docs.microsoft.com/en-us/nuget/reference/nuspec -->
+<package>
+  <metadata>
+    <!-- 定义 Nuget Package 的包名，需要唯一，之后再发布新的版本也不需要更改 -->
+    <id>SquirrelFramework</id>
+    <!-- 定义 Package 的版本号，这里采用参数形式，会自动从项目属性的 Assembly Information 中读取版本号，也可以直接指定版本字符串，比如 1.0.0 -->
+    <version>$version$</version>
+    <!-- 定义 Package 的标题、描述、作者，以及所有者等 -->
+    <title>Squirrel Framework</title>
+    <description>A lightweight back-end framework and utilities kit based on MongoDB/Redis</description>
+    <authors>Hendry</authors>
+    <owners>Hendry</owners>
+    <releaseNotes>The initial version of Squirrel Framework</releaseNotes>
+    <!-- 指定 Package 的 License、项目地址、使用的图标、是否会提示下载用户确认 License 等 -->
+    <licenseUrl>https://github.com/imnista/SquirrelFramework/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/imnista/SquirrelFramework</projectUrl>
+    <repository type="git" url="https://github.com/imnista/SquirrelFramework" />
+    <iconUrl>http://s.nap7.com/nugetsquirrelframework.png</iconUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <copyright>Copyright 2018 Hendry, nap7.com</copyright>
+    <!-- 定义 Package 的 tag 标签，方便分类和搜索 -->
+    <tags>mongodb redis utility kit back end light repository dao squirrel framework ddd</tags>
+    <!-- 定义当前 Nuget Package 对其他第三方 Package 的依赖 -->
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="11.0.2" />
+      <dependency id="MongoDB.Bson.signed" version="2.5.1" />
+      <dependency id="MongoDB.Driver.Core.signed" version="2.5.1" />
+      <dependency id="MongoDB.Driver.signed" version="2.5.1" />
+      <dependency id="StackExchange.Redis.StrongName" version="1.2.6" />
+      <dependency id="SquirrelFramework.Utility" version="1.0.1" />
+      <dependency id="SquirrelFramework.Domain.Model" version="1.0.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- 定义编译时行为 -->
+    <file src="build\**" target="build" />
+    <!-- 当 Package 包含多个依赖项目时，在此添加内部的依赖项目 -->
+    <file src="bin\Release\SquirrelFramework.Configurations.dll" target="lib/net462" />
+    <file src="bin\Release\SquirrelFramework.Repository.dll" target="lib/net462" />
+    <file src="bin\Release\SquirrelFramework.Domain.Service.dll" target="lib/net462" />
+  </files>
+</package>
