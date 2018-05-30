@@ -9,9 +9,9 @@ You can get the latest stable release from the [official Nuget.org feed](https:/
 https://www.nuget.org/packages/SquirrelFramework
 
 ## Getting Started
-1. Create a .NET project, please ensure that the target framework `MUST be .NET Framework 4.6.2 or later`.
+1. Create a .NET project, please ensure that the target framework `MUST be .NET Framework 4.6.2 or later`
 
-2. Get the Nuget package by searcing the keyword "SquirrelFramework" or using the Project Manager:
+2. Get the Nuget package by searcing the keyword "SquirrelFramework" or using the Project Manager
 ```Shell
     Install-Package SquirrelFramework -Version 1.0.13
 ```
@@ -40,11 +40,13 @@ https://www.nuget.org/packages/SquirrelFramework
     public class UserRepository: RepositoryBase<User> {}
 ```
 
-5. Now you are free to perform various operations on MongoDB.
+5. Now you are free to perform various operations on MongoDB, here are some examples
+```C#
+            var userRepo = new UserRepository();
+```
 
 * Add a new user record
 ```C#
-            var userRepo = new UserRepository();
             userRepo.Add(new User{
                 Name = "Hendry",
                 Gender = "Male",
@@ -53,11 +55,22 @@ https://www.nuget.org/packages/SquirrelFramework
             });
 ```
 
-* Get all users who are older than 18 and are two kilometers away from me
+* Get all users who are 2 kilometers away from me
+```C#
+            userRepo.GetNearBy(new Geolocation(121.551949, 38.890957), 2000);
+```
 
-* Bulk delete users
+* Bulk delete users who are older than 25 asynchronously
+```C#
+            userRepo.DeleteManyAsync(u => u.Age > 25);
+```
 
-* Get users by pager
+* Get the third page (15 records) of all user data and descending sort by the Age field 
+```C#
+            //  Method signature 
+            //  public IEnumerable<TDomain> GetAllByPageSortBy(int pageIndex, int pageSize, Expression<Func<TDomain, object>> sortBy, bool isSortByDescending = false);
+            userRepo.GetAllByPageSortBy(2, 15, u=>u.Age, true);
+```
 
 6. If your data collection is dynamic, for example your have multiple collection to store your order information:
 * Users201801
