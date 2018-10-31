@@ -88,7 +88,7 @@ Then you can provide the specific collection name for each CRUD operation.
             userRepo.Add("Users201805", new User{
                 Name = "Hendry",
                 Gender = "Male",
-                Age = "18",
+                Age = 18,
                 Geolocation = new Geolocation(121.551949, 38.890957) 
             });
 ```
