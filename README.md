@@ -70,7 +70,7 @@ https://www.nuget.org/packages/SquirrelFramework
             userRepo.GetAllByPageSortBy(2, 15, u=>u.Age, true);
 ```
 
-6. If your data collection is dynamic, for example you have multiple collections to store your order information:
+6. If your data collection is dynamic, for example you have multiple collections to store your user information:
 * Users201801
 * Users201802
 * Users201803
