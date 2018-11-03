@@ -33,37 +33,49 @@
         public static IEnumerable<BsonDocument> Enumerate(IAsyncCursor<BsonDocument> docs)
         {
             while (docs.MoveNext())
+            {
                 foreach (var item in docs.Current)
+                {
                     yield return item;
+                }
+            }
         }
 
         public virtual IMongoCollection<T> GetDataCollection<T>()
         {
-            // 优先选择 实体标签所制定的数据库名
+            // 优先选择 实体标签所指定的数据库名
             var databaseName = typeof(T).GetAttributeValue<DatabaseAttribute, string>(t => t.Name);
             if (databaseName == null)
             {
                 databaseName = this.defaultDatabaseName;
                 if (databaseName == null)
+                {
                     throw new Exception(
                         "You must specified the [Database] attribute for the domain model or set the default database name at the configuration file.");
+                }
             }
-            var collectionName = typeof(T).GetAttributeValue<CollectionAttribute, string>(t => t.Name);
-            if (collectionName == null)
-                throw new Exception("You must specified the [Collection] attribute for the domain model.");
+
+            // <!> Since 1.0.14 [Collection] attribute is no longer required.
+            // Get collection name from [Collection] Attribute
+            // If not specified the [Collection] attribute, use the class name as the collection name
+            var collectionName = typeof(T).GetAttributeValue<CollectionAttribute, string>(t => t.Name) ?? typeof(T).Name;
+            // throw new Exception("You must specified the [Collection] attribute for the domain model.");
+
             return MongoDBCollection.GetCollection<T>(this.currentClient, databaseName, collectionName);
         }
 
         public virtual IMongoCollection<T> GetDataCollection<T>(string collectionName)
         {
-            // 优先选择 实体标签所制定的数据库名
+            // 优先选择 实体标签所指定的数据库名
             var databaseName = typeof(T).GetAttributeValue<DatabaseAttribute, string>(t => t.Name);
             if (databaseName == null)
             {
                 databaseName = this.defaultDatabaseName;
                 if (databaseName == null)
+                {
                     throw new Exception(
                         "You must specified the [Database] attribute for the domain model or set the default database name at the configuration file.");
+                }
             }
             return MongoDBCollection.GetCollection<T>(this.currentClient, databaseName, collectionName);
         }

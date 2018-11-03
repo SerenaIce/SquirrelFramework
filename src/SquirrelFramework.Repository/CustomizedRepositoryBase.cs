@@ -28,7 +28,9 @@
         protected IMongoCollection<TDomain> GetCollection(string collectionName)
         {
             if (string.IsNullOrWhiteSpace(collectionName))
+            {
                 return this.dataSelector.GetDataCollection<TDomain>();
+            }
             return this.dataSelector.GetDataCollection<TDomain>(collectionName);
         }
 
@@ -154,7 +156,9 @@
         {
             var executeResult = this.GetCollection(collectionName).ReplaceOne(doc => doc.Id == model.Id, model);
             if (executeResult.IsModifiedCountAvailable)
+            {
                 return executeResult.ModifiedCount;
+            }
             return -1;
         }
 
@@ -167,14 +171,18 @@
         {
             var collection = this.GetCollection(collectionName);
             foreach (var item in items)
+            {
                 collection.ReplaceOne(doc => doc.Id == item.Id, item);
+            }
         }
 
         public void UpdateManyAsync(string collectionName, IEnumerable<TDomain> items)
         {
             var collection = this.GetCollection(collectionName);
             foreach (var item in items)
+            {
                 collection.ReplaceOneAsync(doc => doc.Id == item.Id, item);
+            }
         }
 
         public long Delete(string collectionName, string id)
