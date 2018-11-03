@@ -5,7 +5,7 @@
     using System;
     using Newtonsoft.Json;
 
-    #endregion using directives
+    #endregion
 
     public class JsonHelper
     {
@@ -13,6 +13,11 @@
         //{
         //    ContractResolver = new CamelCasePropertyNamesContractResolver()
         //};
+
+        public static dynamic Deserialize(string jsonString)
+        {
+            return JsonConvert.DeserializeObject(jsonString);
+        }
 
         public static T Deserialize<T>(string jsonString)
         {
@@ -27,6 +32,6 @@
         public static string Serialize(object obj)
         {
             return JsonConvert.SerializeObject(obj);
-        }    
+        }
     }
 }
