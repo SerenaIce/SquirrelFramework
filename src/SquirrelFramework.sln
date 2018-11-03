@@ -22,8 +22,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Configura
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelFramework", "SquirrelFramework\SquirrelFramework.csproj", "{952255DA-D05B-4E06-B412-FA20218659A2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelFramework.Web", "SquirrelFramework.Web\SquirrelFramework.Web.csproj", "{882A4BF0-14A0-46A4-B99E-85911F693401}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Utility.Common", "SquirrelFramework.Utility.Common\SquirrelFramework.Utility.Common.csproj", "{BC9DE748-AE58-4A5B-8DAF-6F08D99BC708}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Utility.Windows", "SquirrelFramework.Utility.Windows\SquirrelFramework.Utility.Windows.csproj", "{E84D98F9-C127-482E-9D28-D7740F61BA2E}"
@@ -40,9 +38,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Utility.W
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Repository.Intention", "SquirrelFramework.Repository.Intention\SquirrelFramework.Repository.Intention.csproj", "{155C5777-A69D-4FFA-B2AA-D01D1102BA87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelFramework.Utility.Windows.UWP", "SquirrelFramework.Utility.Windows.UWP\SquirrelFramework.Utility.Windows.UWP.csproj", "{A5D32E7A-E4CA-461F-BBC0-14F05BCFBB08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Utility.Windows.UWP", "SquirrelFramework.Utility.Windows.UWP\SquirrelFramework.Utility.Windows.UWP.csproj", "{A5D32E7A-E4CA-461F-BBC0-14F05BCFBB08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SquirrelFramework.Utility.Microsoft.Graph", "SquirrelFramework.Utility.Microsoft.Graph\SquirrelFramework.Utility.Microsoft.Graph.csproj", "{0D0C57CA-E13A-4FE0-B878-F154D3280555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SquirrelFramework.Utility.Microsoft.Graph", "SquirrelFramework.Utility.Microsoft.Graph\SquirrelFramework.Utility.Microsoft.Graph.csproj", "{0D0C57CA-E13A-4FE0-B878-F154D3280555}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -70,10 +68,6 @@ Global
 		{952255DA-D05B-4E06-B412-FA20218659A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{952255DA-D05B-4E06-B412-FA20218659A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{952255DA-D05B-4E06-B412-FA20218659A2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{882A4BF0-14A0-46A4-B99E-85911F693401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{882A4BF0-14A0-46A4-B99E-85911F693401}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{882A4BF0-14A0-46A4-B99E-85911F693401}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{882A4BF0-14A0-46A4-B99E-85911F693401}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BC9DE748-AE58-4A5B-8DAF-6F08D99BC708}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BC9DE748-AE58-4A5B-8DAF-6F08D99BC708}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC9DE748-AE58-4A5B-8DAF-6F08D99BC708}.Release|Any CPU.ActiveCfg = Release|Any CPU
