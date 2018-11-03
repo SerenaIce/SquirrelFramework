@@ -48,7 +48,7 @@ https://www.nuget.org/packages/SquirrelFramework
             userRepo.Add(new User{
                 Name = "Hendry",
                 Gender = "Male",
-                Age = "18",
+                Age = 18,
                 Geolocation = new Geolocation(121.551949, 38.890957) 
             });
 ```
@@ -66,11 +66,18 @@ https://www.nuget.org/packages/SquirrelFramework
 * Get the third page (15 records) of all user data and descending sort by the Age field 
 ```C#
             //  Method signature 
-            //  public IEnumerable<TDomain> GetAllByPageSortBy(int pageIndex, int pageSize, Expression<Func<TDomain, object>> sortBy, bool isSortByDescending = false);
-            userRepo.GetAllByPageSortBy(2, 15, u=>u.Age, true);
+            //  public IEnumerable<TDomain> GetAllByPageSortBy(
+            //      int pageIndex, 
+            //      int pageSize, 
+            //      Expression<Func<TDomain, object>> sortBy, 
+            //      bool isSortByDescending = false
+            //  );
+
+            userRepo.GetAllByPageSortBy(2, 15, u => u.Age, true);
+            
 ```
 
-6. If your data collection is dynamic, for example you have multiple collections to store your order information:
+6. If your data collection is dynamic, for example you have multiple collections to store your user information:
 * Users201801
 * Users201802
 * Users201803
@@ -88,7 +95,7 @@ Then you can provide the specific collection name for each CRUD operation.
             userRepo.Add("Users201805", new User{
                 Name = "Hendry",
                 Gender = "Male",
-                Age = "18",
+                Age = 18,
                 Geolocation = new Geolocation(121.551949, 38.890957) 
             });
 ```
