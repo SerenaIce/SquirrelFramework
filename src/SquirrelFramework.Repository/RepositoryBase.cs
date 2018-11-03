@@ -40,6 +40,46 @@
             Expression<Func<TDomain, bool>> filter, Expression<Func<TDomain, object>> sortBy,
             bool isSortByDescending = false) => base.GetAllByPageSortBy(null, pageIndex, pageSize, filter, sortBy);
 
+        public IEnumerable<TDomain> GetTop(
+            int resultNumber,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false) => base.GetTop(
+                null,
+                resultNumber,
+                sortBy,
+                isSortByDescending);
+
+        public IEnumerable<TDomain> GetTop(
+            double percent,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false) => base.GetTop(
+                   null,
+                   percent,
+                   sortBy,
+                   isSortByDescending);
+        
+        public IEnumerable<TDomain> GetTop(
+            int resultNumber,
+            Expression<Func<TDomain, bool>> filter,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false) => base.GetTop(
+                    null,
+                    resultNumber,
+                    filter,
+                    sortBy,
+                    isSortByDescending);
+
+        public IEnumerable<TDomain> GetTop(
+            double percent,
+            Expression<Func<TDomain, bool>> filter,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false) => base.GetTop(
+                       null,
+                       percent,
+                       filter,
+                       sortBy,
+                       isSortByDescending);
+        
         public TDomain Get(string id) => base.Get(null, id);
 
         public TDomain Get(Expression<Func<TDomain, bool>> filter) => base.Get(null, filter);

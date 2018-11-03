@@ -12,7 +12,7 @@
     #endregion
 
     /// <summary>
-    ///     可以不为 Domain 的 [Collection] 标签指定表名，而是在使用时现指定，特别适合分表存储的场景
+    ///     在使用时现指定 Collection 名，特别适合分表存储的场景
     /// </summary>
     public abstract class CustomizedRepositoryBase<TDomain> where TDomain : DomainModel
     {
@@ -120,6 +120,58 @@
                     .Limit(pageSize).ToList()
                 : this.GetCollection(collectionName).Find(filter).SortBy(sortBy).Skip(pageIndex * pageSize)
                     .Limit(pageSize).ToList();
+        }
+
+        public IEnumerable<TDomain> GetTop(
+            string collectionName,
+            int resultNumber,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false)
+        {
+            return this.GetAllByPageSortBy(collectionName, 0, resultNumber, sortBy, isSortByDescending);
+        }
+
+        public IEnumerable<TDomain> GetTop(
+            string collectionName,
+            double percent,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false)
+        {
+            if (percent < 0d || percent > 1d)
+            {
+                throw new Exception("Please specific a valid percent value from 0 to 1, e.g. 0.45 (means 45%)");
+            }
+            var pageCount = this.GetCount(collectionName);
+            var resultNumber = Convert.ToInt32(pageCount * percent);
+            // Caution the loss of accuracy (long to int)
+            return this.GetAllByPageSortBy(collectionName, 0, resultNumber, sortBy, isSortByDescending);
+        }
+
+        public IEnumerable<TDomain> GetTop(
+            string collectionName,
+            int resultNumber,
+            Expression<Func<TDomain, bool>> filter,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false)
+        {
+            return this.GetAllByPageSortBy(collectionName, 0, resultNumber, filter, sortBy, isSortByDescending);
+        }
+
+        public IEnumerable<TDomain> GetTop(
+            string collectionName,
+            double percent,
+            Expression<Func<TDomain, bool>> filter,
+            Expression<Func<TDomain, object>> sortBy,
+            bool isSortByDescending = false)
+        {
+            if (percent < 0d || percent > 1d)
+            {
+                throw new Exception("Please specific a valid percent value from 0 to 1, e.g. 0.45 (means 45%)");
+            }
+            var pageCount = this.GetCount(collectionName, filter);
+            var resultNumber = Convert.ToInt32(pageCount * percent);
+            // Caution the loss of accuracy (long to int)
+            return this.GetAllByPageSortBy(collectionName, 0, resultNumber, filter, sortBy, isSortByDescending);
         }
 
         public TDomain Get(string collectionName, string id)

@@ -9,7 +9,7 @@
     using MongoDB.Bson;
     using MongoDB.Driver;
 
-    #endregion
+    #endregion using directives
 
     internal class DataCollectionSelector
     {
