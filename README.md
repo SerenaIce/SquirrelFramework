@@ -1,4 +1,4 @@
-SquirrelFramework
+SquirrelFramework 2
 =================
 Squirrel Framework - A lightweight back-end framework and utilities kit based on MongoDB/Redis.
 
